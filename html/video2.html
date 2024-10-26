@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video and Audio Sync</title>
+</head>
+<body>
+
+    <!-- Ensure the paths to the video and audio files are correct -->
+    <video controls width="700" height="900" id="video">
+        <source src="path/to/video/woman_running.mp4" type="video/mp4">
+        <source src="path/to/video/woman_running.ogg" type="video/ogg">
+        Your browser does not support the video tag.
+    </video>
+
+    <audio id="audio" loop>
+        <source src="path/to/audio/Majiko-KOKORONASHI(lyrics).mp3" type="audio/mp3">
+        <source src="path/to/audio/Majiko-KOKORONASHI(lyrics).ogg" type="audio/ogg">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <script>
+        // Get the video and audio elements
+        var video = document.getElementById('video');
+        var audio = document.getElementById('audio');
+
+        // Play the audio when the video starts playing
+        video.onplay = function() {
+            audio.play();
+        };
+
+        // Pause the audio when the video is paused
+        video.onpause = function() {
+            audio.pause();
+        };
+
+        // Stop the audio when the video ends
+        video.onended = function() {
+            audio.pause();
+        };
+    </script>
+</body>
+</html>
